@@ -91,8 +91,8 @@ public class Collision_normalObs : MonoBehaviour
     public virtual IEnumerator  CollisionBehavior(){
         
         if(playerstate.BoosterState=="Invincibility"){
-            //ObsPool.ReturnObj(this.gameObject);
-            //isCollisionBehaviorCoroutineRunning=false;
+            ObsPool.ReturnObj(this.gameObject);
+            isCollisionBehaviorCoroutineRunning=false;
         }
         else{
             GameOverPanel.SetActive(true);             //GameOver panel will fade in in 0.55 s
