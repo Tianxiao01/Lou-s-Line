@@ -1028,6 +1028,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6404474727545194326, guid: eeaf8715a8c3c484189c7d896e96a3cc, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1649283673}
+    - target: {fileID: -6404474727545194326, guid: eeaf8715a8c3c484189c7d896e96a3cc, type: 3}
       propertyPath: ObsPool
       value: 
       objectReference: {fileID: 1411934522}
@@ -3170,6 +3174,14 @@ PrefabInstance:
     - target: {fileID: 825338983286358731, guid: 94df8a0c436653d4f82305f38a2c34b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 825338983286358731, guid: 94df8a0c436653d4f82305f38a2c34b4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077051399869756796, guid: 94df8a0c436653d4f82305f38a2c34b4, type: 3}
+      propertyPath: BoosterState
+      value: Small_Size
       objectReference: {fileID: 0}
     - target: {fileID: 6278621823461311676, guid: 94df8a0c436653d4f82305f38a2c34b4, type: 3}
       propertyPath: m_Name

@@ -66,12 +66,23 @@ public class Collision_normalObs : MonoBehaviour
             }
             else{
                 float distance=CalculateDistance(closestPt,playerPosition);
-                if(distance<0.5f){
-                    isCollided=true;
+                if(playerstate.BoosterState=="Small_Size"){
+                    if(distance<0.25f){
+                         isCollided=true;
                     //Debug.Log("isCollided2");
+                    }
+                    else{
+                        isCollided=false;
+                    }
                 }
                 else{
-                    isCollided=false;
+                    if(distance<0.5f){
+                        isCollided=true;
+                    //Debug.Log("isCollided2");
+                    }
+                    else{
+                        isCollided=false;
+                    }
                 }
             }
             
@@ -91,7 +102,7 @@ public class Collision_normalObs : MonoBehaviour
     public virtual IEnumerator  CollisionBehavior(){
         
         if(playerstate.BoosterState=="Invincibility"){
-            ObsPool.ReturnObj(this.gameObject);
+            transform.position= new Vector3(-30f,-2f,2f); //move it away from camera and look like "removed" If I put it back to the pool directly, the upcoming generation wil have giltch
             isCollisionBehaviorCoroutineRunning=false;
         }
         else{

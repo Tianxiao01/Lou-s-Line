@@ -332,7 +332,7 @@ public class ItemsGenerator : MonoBehaviour
 
     void Update()
     {
-        //PrintMap2();
+        PrintMap2();
         //Debug.Log(ObsPool.CountElements());
     }
 }
