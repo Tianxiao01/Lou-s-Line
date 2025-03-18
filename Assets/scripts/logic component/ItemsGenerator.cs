@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
-using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -17,13 +17,13 @@ public class ItemsGenerator : MonoBehaviour
     public ObstaclePool boosterPool;
     public GameManager GM;
 
-    private bool IsTurned=false;              // each time the essential grid is called plus one to ensure no consecutive turns are made
-    private int counter=0;                     // each time new rows are generated counter plus 1
-    private int boostergenerationRecordr;  // no consecutive booster will occur
+    private bool IsTurned=false;                // each time the essential grid is called plus one to ensure no consecutive turns are made
+    private int counter=0;                      // each time new rows are generated counter plus 1
+    private int boostergenerationRecordr;       // no consecutive booster will occur
     private int boostergenerationCounter;
 
-    public int[,] Essential_Grid; // for the rest of map generation only 2 rows are essential
-                                    //top2 rows
+    public int[,] Essential_Grid;               // for the rest of map generation only top 2 rows are essential
+
 
 
     private Vector3 Init_IndexToCoordinate (int row,int column){  //when first build the scene, convert index number to exact positon on the screen
@@ -54,7 +54,7 @@ public class ItemsGenerator : MonoBehaviour
     void Start()
     {   
 
-        jumpPoint = Instantiate(jumpingPoint);   // init jumppoint but set it to deactivated at first
+        jumpPoint = Instantiate(jumpingPoint);              // init jumppoint（the dark block right before river) but set it to deactivated at first
         jumpPoint.SetActive(false);
 
         for (int i = 0; i < 5; i++) {
@@ -70,7 +70,7 @@ public class ItemsGenerator : MonoBehaviour
         InvokeRepeating("EssentialGridRegenerate_pattern1", 0.36f, 0.75f);// call pattern1 generation at 0.36 s and interval is 0.75 s
     }                                                                                   
 
-        void GenerateNewRow(){   //will be triggered after new Essential_Grid_pattern is made
+        void GenerateNewRow(){                              //will be triggered after new Essential_Grid_pattern is made
         for (int i=0;i<10;i++){
             if (Essential_Grid[0,i]==0){                    // if the state of the block is 0 put a nomral obstacle block there
                 GameObject obstacle= ObsPool.GetObj();
@@ -199,7 +199,7 @@ public class ItemsGenerator : MonoBehaviour
         
 
         
-        for (int j = 0; j < 10; j++) {              //the previous top row has moved to second row
+        for (int j = 0; j < 10; j++) {                  // move the previous top row to second row
             Essential_Grid[1,j]=Essential_Grid[0,j];
         }
         
@@ -239,7 +239,7 @@ public class ItemsGenerator : MonoBehaviour
                     Essential_Grid[0,j]=2;                      //the new top row will not perform turn behavior
                     IsTurned=false;
                 }              
-                else if(Essential_Grid[1,j]==2){         // check which block is the node 
+                else if(Essential_Grid[1,j]==2){                // check which block is the node 
 
                     if (randomNumebr>80 && j<curvedPathIndex+1){         //20% right turn will occurs (if turnable)
                         Turn(true,1,j);
@@ -254,7 +254,7 @@ public class ItemsGenerator : MonoBehaviour
                         Turn(true,2,j);
                     }
                     else{
-                        Essential_Grid[0,j]=2;          // (greater than)20% it's a straight path
+                        Essential_Grid[0,j]=2;                          // (greater than)20% it's a straight path
                     }
                 }
 

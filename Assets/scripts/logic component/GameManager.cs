@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
    
     void InitMap(){
-        Start_Grid_map = new  int[5, 10];  //2-dimension array to represent pattern of starting grid in 5*10 maps. 0 means the grid will be obstacle, 1 means it's a part of the path
-        for (int i = 0; i < 5; i++) {       //2 means it's a crucial node of the path
+        Start_Grid_map = new  int[5, 10];   //2-dimension array to represent pattern of starting grid in 5*10 maps. 0 means the grid will be obstacle, 1 means it's a part of the path
+        for (int i = 0; i < 5; i++) {       //2 means it's a crucial node of the path 1 means normal path 0 means normal obstacle 3 means river 4 means extra booster 5 means jumpingpoint
             for (int j = 0; j < 10; j++) {
                 if (i+j>=4 && j-i<=5 && i<4){
                     Start_Grid_map[i,j]=1;
