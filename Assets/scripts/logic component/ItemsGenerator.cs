@@ -87,7 +87,7 @@ public class ItemsGenerator : MonoBehaviour
             else if((Essential_Grid[0,i]==2 ||Essential_Grid[0,i]==4)&& boostergenerationCounter>=boostergenerationRecordr ){                
                                                                     // 10% chance there will be a booster on path
                 int randomnumber=UnityEngine.Random.Range(1, 101);  // and gap between booster is at least 10 rows
-                if(randomnumber<10){
+                if(randomnumber<1000){
                     boostergenerationCounter=counter-10;
                     boostergenerationRecordr=counter;
                     GameObject booster= boosterPool.GetObj();
@@ -332,7 +332,7 @@ public class ItemsGenerator : MonoBehaviour
 
     void Update()
     {
-        PrintMap2();
+        //PrintMap2();
         //Debug.Log(ObsPool.CountElements());
     }
 }

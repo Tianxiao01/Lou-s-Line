@@ -5,7 +5,7 @@ using UnityEngine;
 public class Collision_normalObs : MonoBehaviour
 {
     public Transform playerTransform;
-    public booster_state playerstate;
+    public Booster_state playerstate;
 
     public ObstaclePool ObsPool;
 
@@ -13,7 +13,7 @@ public class Collision_normalObs : MonoBehaviour
     public GameObject MenueButton;
     public GameObject instructionPanel;
 
-    protected bool isCollided=false; 
+    public bool isCollided=false; 
     protected bool isCollisionBehaviorCoroutineRunning = false; //we don't want multiple coroutine be created when collison happen
 
  
@@ -32,7 +32,7 @@ public class Collision_normalObs : MonoBehaviour
         StopCoroutine(CheckCollision());
     }
 
-    IEnumerator CheckCollision(){ 
+    public virtual IEnumerator  CheckCollision(){ 
         Vector3 closestPt=transform.position;
         while (true){
             Vector3 playerPosition=playerTransform.position;
@@ -91,7 +91,7 @@ public class Collision_normalObs : MonoBehaviour
         }
     }
 
-    float CalculateDistance(Vector3 clsPt, Vector3 playerPt){
+    protected float CalculateDistance(Vector3 clsPt, Vector3 playerPt){
         float distance=100f;
         float XDiffer=clsPt.x-playerPt.x;
         float YDiffer=clsPt.y-playerPt.y;

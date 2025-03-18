@@ -8,14 +8,14 @@ public class ObstaclePool : MonoBehaviour
     public GameObject targetObject;
     public int initSize=45;
 
-    private Queue<GameObject> pool = new Queue<GameObject>();
+    protected Queue<GameObject> pool = new Queue<GameObject>();
 
-    void InitPool(){
+    public virtual void InitPool(){
             for (int i = 0; i < initSize; i++) {
                 GameObject obj = Instantiate(targetObject);
                 obj.SetActive(false);  
                 pool.Enqueue(obj);
-        }
+            }
         }
 
 
@@ -30,10 +30,8 @@ public class ObstaclePool : MonoBehaviour
         return pool.Count;
     }
 
-    public GameObject GetObj(){
+    public virtual GameObject GetObj(){
         if (pool.Count>0){                              //if there is object in the pool
-            string instanceName = gameObject.name;
-            //Debug.Log(instanceName+" get called");
             GameObject obj=pool.Dequeue();
             obj.SetActive(true);
             return obj;
@@ -45,11 +43,8 @@ public class ObstaclePool : MonoBehaviour
     }   
 
     public void ReturnObj (GameObject obj){
-        string instanceName = gameObject.name;
-        //Debug.Log(instanceName+" return called");
         obj.SetActive(false);
         pool.Enqueue(obj);
-        //Debug.Log("Pool size after return: " + pool.Count);
     }
 
     

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class boostermovement : MonoBehaviour
 {
-    public GameManager GM;
     private Vector3 newPosition;
     public static float speed=4.0f;
 

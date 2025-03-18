@@ -19,7 +19,7 @@ public class obstacle_movement : MonoBehaviour
     {   
 
 
-        Vector3 newPosition= transform.position;
+        newPosition= transform.position;
         newPosition.y-=speed*Time.deltaTime;
         transform.position=newPosition;
 

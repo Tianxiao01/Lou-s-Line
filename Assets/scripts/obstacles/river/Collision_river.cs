@@ -31,11 +31,11 @@ public class Collision_river : Collision_normalObs
             else{
                 Renderer playerRenderer=player.GetComponent<Renderer>();
                 Color originColor=playerRenderer.material.color;            //blinking means the ball is jumping
-                playerRenderer.material.color=new Color (1f, 0.8f, 0f, 1f);
+                playerRenderer.material.color=new Color (0f, 0.8f, 1f, 1f);
                 yield return new WaitForSeconds(0.2f);
                 playerRenderer.material.color=originColor;
                 yield return new WaitForSeconds(0.2f);
-                playerRenderer.material.color=new Color (1f, 0.8f, 0f, 1f);
+                playerRenderer.material.color=new Color (0f, 0.8f, 1f, 1f);
                 yield return new WaitForSeconds(0.2f);
                 playerRenderer.material.color=originColor;
             }
